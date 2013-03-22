@@ -1,24 +1,41 @@
 # Alfredo
 
-TODO: Write a gem description
+Alfredo is wrapper for Alfred 2's new Workflow system. It generates a
+XML response based on the work of
+[alfred2-top-workflow](https://github.com/zhaocai/alfred2-top-workflow/tree/master/top).
+I'm pretty sure Alfredo is not feature complete, so pull requests that
+fix or add features will be appreciated. 
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'alfredo'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install alfredo
 
 ## Usage
 
-TODO: Write usage instructions here
+Using Alfredo is pretty straightforward:
+
+```ruby
+require 'alfredo'
+
+# set up the workflow
+workflow = Alfredo::Workflow.new
+
+# you can add as many items as you want like this:
+workflow << Alfredo::Item.new(...)
+
+# At the end of your script call:
+workflow.output!
+```
+
+Parameters available for `Alfredo::Item.new` are:
+
+* ``title``
+* `subtitle`
+* `arg` (argument that can be passed on to next steps in the workflow)
+* `uid`
+* `icon_path` (path of icon, relative to workflow directory)
+* `icon_type`
+* `type`
 
 ## Contributing
 
