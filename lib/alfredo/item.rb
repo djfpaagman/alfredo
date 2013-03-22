@@ -43,7 +43,7 @@ module Alfredo
                 xml.text icon_path
               }
             else
-              xml.icon_path icon_path
+              xml.icon icon_path
             end
           end
           xml.type type if type
