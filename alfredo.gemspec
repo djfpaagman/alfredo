@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["dennispaagman@gmail.com"]
   spec.description   = %q{Wrapper for Alfred 2's Workflows}
   spec.summary       = %q{Easy generation of XML responses usable in Alfred 2 Workflows}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/springest/alfredo"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
