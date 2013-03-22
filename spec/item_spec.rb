@@ -33,6 +33,11 @@ describe 'Alfredo::Item' do
       @xml.xpath('/item/icon').first.text.should eq 'icon.png'
     end
 
+    it 'should set icon to icon_path without icon_type' do
+      @item.icon_type = nil
+      @item.build_xml.xpath('/item/icon').first.text.should eq 'icon.png'
+    end
+
     it 'should not set icon when no icon_path not present' do
       @item.icon_path = nil
       @item.build_xml.xpath('/item/icon').size.should eq 0
