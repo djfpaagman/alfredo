@@ -1,10 +1,8 @@
 # Alfredo
 
 Alfredo is wrapper for Alfred 2's new Workflow system. It generates a
-XML response based on the work of
-[alfred2-top-workflow](https://github.com/zhaocai/alfred2-top-workflow/tree/master/top).
-I'm pretty sure Alfredo is not feature complete, so pull requests that
-fix or add features will be appreciated. 
+XML response based on the information in the [Alfred
+Forums](http://www.alfredforum.com/topic/5-generating-feedback-in-workflows/).
 
 ## Installation
 
@@ -29,13 +27,18 @@ workflow.output!
 
 Parameters available for `Alfredo::Item.new` are:
 
-* ``title``
-* `subtitle`
+* `title` (shown in large text in the results)
+* `subtitle` (shown under the title in smaller text)
 * `arg` (argument that can be passed on to next steps in the workflow)
-* `uid`
-* `icon_path` (path of icon, relative to workflow directory)
+* `uid` (value that Alfred uses to learn about your usage)
+* `icon_path` (path of icon or file, relative to workflow directory)
 * `icon_type`
-* `type`
+  *  `fileicon` (uses the icon associated with a file)
+  *  `filetype` (uses the icon associated with the type of a file)
+* `type` (when `file` allows result action for files)
+
+More info is available at the [Alfred
+Forums](http://www.alfredforum.com/topic/5-generating-feedback-in-workflows/).
 
 ## Contributing
 

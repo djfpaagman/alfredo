@@ -1,6 +1,6 @@
 module Alfredo
   class Item
-    attr_accessor :title, :subtitle, :arg, :uid, :icon_path, :icon_type, :type
+    attr_accessor :title, :subtitle, :arg, :uid, :icon_path, :icon_type, :type, :valid, :autocomplete
 
     def initialize(attributes = {})
       attributes.each do |attribute,value|
@@ -9,26 +9,44 @@ module Alfredo
     end
 
     def uid
-      @uid || "#{title}_#{Time.now.to_i}"
+      @uid || title
     end
 
     def icon_type
-      @icon_type || 'default'
+      @icon_type if %w{fileicon filetype}.include? @icon_type
     end
     
+    def valid
+      if @valid == false
+        'no'
+      else
+        'yes'
+      end
+    end
+
+    def autocomplete
+      @autocomplete || title
+    end
+
     def type
-      @type || 'default'
+      @type if @type == 'file'
     end
 
     def build_xml
       Nokogiri::XML::Builder.new do |xml|
-        xml.item(arg: arg, uid: uid, valid: 'yes') {
+        xml.item(arg: arg, uid: uid, valid: valid, autocomplete: autocomplete) {
           xml.title title
           xml.subtitle subtitle
-          xml.icon(type: icon_type) {
-            xml.text icon_path
-          }
-          xml.type type
+          if icon_path
+            if icon_type
+              xml.icon(type: icon_type) {
+                xml.text icon_path
+              }
+            else
+              xml.icon_path icon_path
+            end
+          end
+          xml.type type if type
         }
       end.doc.children.first
     end
