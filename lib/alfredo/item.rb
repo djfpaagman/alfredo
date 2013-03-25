@@ -34,12 +34,12 @@ module Alfredo
 
     def build_xml
       Nokogiri::XML::Builder.new do |xml|
-        xml.item(arg: arg, uid: uid, valid: valid, autocomplete: autocomplete) {
+        xml.item(:arg => arg, :uid => uid, :valid => valid, :autocomplete => autocomplete) {
           xml.title title
           xml.subtitle subtitle
           if icon_path
             if icon_type
-              xml.icon(type: icon_type) {
+              xml.icon(:type => icon_type) {
                 xml.text icon_path
               }
             else

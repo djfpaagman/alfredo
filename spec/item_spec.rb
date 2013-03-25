@@ -3,7 +3,14 @@ require 'alfredo'
 describe 'Alfredo::Item' do
   describe '#build_xml' do
     before do
-      @item = Alfredo::Item.new(title: 'foo', subtitle: 'bar', arg: 'baz', uid: 123, icon_path: 'icon.png', icon_type: 'fileicon', type: 'file', autocomplete: 'moo')
+      @item = Alfredo::Item.new(:title => 'foo',
+                                :subtitle => 'bar',
+                                :arg => 'baz',
+                                :uid => 123,
+                                :icon_path => 'icon.png',
+                                :icon_type => 'fileicon',
+                                :type => 'file',
+                                :autocomplete => 'moo')
 
       @xml = @item.build_xml
     end

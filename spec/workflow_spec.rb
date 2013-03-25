@@ -4,7 +4,7 @@ describe 'Alfredo::Workflow' do
   before do
     @workflow = Alfredo::Workflow.new
     3.times do
-      @workflow.items << Alfredo::Item.new(title: SecureRandom.hex)
+      @workflow.items << Alfredo::Item.new(:title => rand(9999))
     end
   end
 
