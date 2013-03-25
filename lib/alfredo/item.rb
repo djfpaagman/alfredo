@@ -46,7 +46,7 @@ module Alfredo
               xml.icon icon_path
             end
           end
-          xml.type type if type
+          xml.type_ type if type
         }
       end.doc.children.first
     end
