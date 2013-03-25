@@ -1,4 +1,5 @@
 # Alfredo
+[![Build Status](https://travis-ci.org/Springest/alfredo.png?branch=master)](https://travis-ci.org/Springest/alfredo)
 
 Alfredo is wrapper for Alfred 2's new Workflow system. It generates a
 XML response based on the information in the [Alfred
