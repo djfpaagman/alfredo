@@ -1,4 +1,4 @@
-require 'alfredo'
+require 'spec_helper'
 
 describe 'Alfredo::Workflow' do
   before do
